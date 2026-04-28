@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './viewproduct.css';
+import './ViewProduct.css';
 
-const Viewproduct = () => {
+const ViewProduct = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -11,7 +11,7 @@ const Viewproduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3001/view-product');
+      const response = await fetch(`${baseUrl}/view-product`);
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -55,7 +55,7 @@ const Viewproduct = () => {
                 <td>
                   {product.image ? (
                     <img
-                      src={`http://localhost:3001/uploads/${product.image}`}
+                      src={`${baseUrl}/uploads/${product.image}`}
                       alt={product.product}
                       style={{
                         width: '50px',
@@ -87,4 +87,4 @@ const Viewproduct = () => {
   );
 };
 
-export default Viewproduct;
+export default ViewProduct;

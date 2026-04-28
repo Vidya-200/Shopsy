@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./manageproduct.css";
+import "./ManageProduct.css";
 
 function ManageProduct() {
   const [products, setProducts] = useState([]);
