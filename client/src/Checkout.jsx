@@ -128,7 +128,7 @@ const Checkout = () => {
   try {
     
     if (formData.paymentMethod === "cod") {
-      await fetch("http://localhost:3001/order", {
+      await fetch("${baseUrl}/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -154,7 +154,7 @@ const Checkout = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:3001/create-order", {
+    const res = await fetch("${baseUrl}/create-order", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -188,7 +188,7 @@ if (!order.id) {
       handler: async function (response) {
         console.log("Payment Success:", response);
 
-        await fetch("http://localhost:3001/order", {
+        await fetch("${baseUrl}/order", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

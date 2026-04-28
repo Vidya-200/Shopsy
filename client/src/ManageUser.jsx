@@ -13,7 +13,7 @@ function ManageUser() {
 
   const fetchUsers = () => {
     setLoading(true);
-    axios.get("http://localhost:3001/users")
+    axios.get("${baseUrl}/users")
       .then(res => {
         setUsers(res.data);
         setLoading(false);
@@ -27,7 +27,7 @@ function ManageUser() {
 
   const deleteUser = (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
-      axios.delete(`http://localhost:3001/deleteUser/${id}`)
+      axios.delete(`${baseUrl}/deleteUser/${id}`)
         .then(res => {
           alert("User Deleted Successfully");
           fetchUsers();

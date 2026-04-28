@@ -8,7 +8,7 @@ const Order = () => {
  
   const fetchOrders = async () => {
     try {
-      const res = await fetch("http://localhost:3001/order");
+      const res = await fetch("${baseUrl}/order");
       const data = await res.json();
       setOrders(data);
       setLoading(false);
@@ -27,7 +27,7 @@ const Order = () => {
     if (!window.confirm("Are you sure you want to delete this order?")) return;
 
     try {
-      await fetch(`http://localhost:3001/order/${id}`, {
+      await fetch(`${baseUrl}/order/${id}`, {
         method: "DELETE",
       });
 
@@ -47,7 +47,7 @@ const Order = () => {
   try {
     const shouldLock = status === "Delivered";
 
-    const res = await fetch(`http://localhost:3001/order/${id}`, {
+    const res = await fetch(`${baseUrl}/order/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

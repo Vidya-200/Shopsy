@@ -23,7 +23,7 @@ function EditProduct() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/getProduct/${id}`)
+    axios.get(`${baseUrl}/getProduct/${id}`)
       .then(res => {
         if (res.data) {
           setProduct({
@@ -65,7 +65,7 @@ function EditProduct() {
       return;
     }
 
-    axios.put(`http://localhost:3001/updateProduct/${id}`, product)
+    axios.put(`${baseUrl}/updateProduct/${id}`, product)
       .then(res => {
         alert("Product Updated Successfully");
         navigate("/manage-product");

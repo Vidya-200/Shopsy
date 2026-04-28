@@ -10,7 +10,7 @@ function Login(){
 
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/login", { email, password })
+        axios.post("${baseUrl}/login", { email, password })
         .then(res => {console.log(res);})
 
         .catch(err => console.log(err))

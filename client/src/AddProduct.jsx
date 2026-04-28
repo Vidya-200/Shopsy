@@ -35,7 +35,7 @@ const AddProduct = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/add-product", {
+      const response = await fetch("${baseUrl}/add-product", {
         method: "POST",
         body: formData,
       });

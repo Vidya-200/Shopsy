@@ -26,7 +26,7 @@ function SingleProduct() {
   navigate("/cart");
 };
   useEffect(() => {
-    axios.get(`http://localhost:3001/getProduct/${id}`)
+    axios.get(`${baseUrl}/getProduct/${id}`)
       .then(res => {
         setProduct(res.data);
       })
@@ -42,7 +42,7 @@ function SingleProduct() {
     <div className="single-product">
       <div className="product-left">
         <img
-          src={`http://localhost:3001/uploads/${product.image}`}
+          src={`${baseUrl}/uploads/${product.image}`}
           alt={product.product}
         />
       </div>

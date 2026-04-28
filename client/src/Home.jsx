@@ -5,7 +5,7 @@ import men from "./images/men.jpg";
 import kid from "./images/kid.jpg";
 import foot from "./images/foot.jfif";
 import beauty from "./images/beauty.webp";
-import accessories from "./images/accessories.jpg";
+import accessories from "./images/Accessories.jpg";
 import homedecor from "./images/homedecor.webp";
 import homefurnishing from "./images/homefurnishing.jpg";
 import kitchen from "./images/kitchen.webp";
@@ -14,6 +14,7 @@ import toy from "./images/toy.jpg";
 import electronic_accessories from "./images/electronic_accessories.webp";
 import "./Home.css";
 import { Link, useNavigate } from "react-router-dom";
+import { baseUrl } from "./baseUrl";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/products")
+    axios.get("${baseUrl}/products")
       .then(res => {
         setProducts(res.data);
       })
@@ -126,7 +127,7 @@ function Home() {
           </div>
 
           <div className="category-item">
-            <img src={accessories} alt="Accessories" />
+            <img src={Accessories} alt="Accessories" />
             <p>Accessories & More</p>
           </div>
 
@@ -164,7 +165,7 @@ function Home() {
           {products.map((item, index) => (
             <div className="product-card" key={index}>
               <img
-                src={`http://localhost:3001/uploads/${item.image}`}
+                src={`${baseUrl}/uploads/${item.image}`}
                 alt={item.product}
                 onClick={() => navigate(`/product/${item._id}`)}
                 style={{ cursor: "pointer" }}

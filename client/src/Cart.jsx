@@ -66,7 +66,7 @@ function Cart() {
 
               <div className="cart-left">
                 <img
-                  src={`http://localhost:3001/uploads/${item.image}`}
+                  src={`${baseUrl}/uploads/${item.image}`}
                   alt={item.product}
                 />
               </div>

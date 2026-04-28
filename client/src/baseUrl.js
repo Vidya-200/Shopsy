@@ -1,0 +1,1 @@
+export const baseUrl = `https://shopsy-iw3x.onrender.com`

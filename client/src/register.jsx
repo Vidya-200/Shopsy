@@ -19,7 +19,7 @@ function Register(){
         if (!email) return alert('Please enter your email');
         if (!password) return alert('Please enter your password');
 
-        axios.post("http://localhost:3001/register", { name, phone, email, password })
+        axios.post(`${baseUrl}/register`, { name, phone, email, password })
         .then(res => {
             console.log(res);
             alert('Registration successful! Please login.');

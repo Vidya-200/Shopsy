@@ -8,13 +8,13 @@ function ManageProduct() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/products")
+    axios.get("${baseUrl}/products")
       .then(result => setProducts(result.data))
       .catch(err => console.log(err));
   }, []);
 
   const deleteProduct = (id) => {
-    axios.delete("http://localhost:3001/deleteProduct/" + id)
+    axios.delete(`${baseUrl}/deleteProduct/${id}`)
       .then(res => {
         alert("Product Deleted");
         window.location.reload();
