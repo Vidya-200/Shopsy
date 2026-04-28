@@ -26,7 +26,7 @@ app.use(express.json())
 app.use(cors())
 app.use("/uploads", express.static("uploads"));
 
-mongoose.connect("mongodb://127.0.0.1:27017/shopsy")
+mongoose.connect(process.env.Mongodb_URL)
 .then(()=>console.log("MongoDB connected"))
 .catch(err=>console.log(err))
 
@@ -230,10 +230,7 @@ app.get("/payment/:paymentId", async (req, res) => {
   }
 });
 
-app.get("/products", async (req, res) => {
-  const products = await ProductModel.find();
-  res.json(products);
-});
+
 
 app.get("/view-product", async (req, res) => {
   try {
