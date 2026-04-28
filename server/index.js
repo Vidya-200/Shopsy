@@ -306,21 +306,6 @@ app.post("/create-order", async (req, res) => {
   }
 });
 
-app.get("/my-orders/:email", async (req, res) => {
-  try {
-    const email = req.params.email;
-
-    const orders = await OrderModel.find({
-      "customer.email": email
-    }).sort({ createdAt: -1 });
-
-    res.json(orders);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: "Failed to fetch orders" });
-  }
-});
-
 app.listen(3001,()=>{
   console.log("Server running on port 3001")
 })
