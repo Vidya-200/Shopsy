@@ -1,0 +1,90 @@
+import React, { useState, useEffect } from 'react';
+import './viewproduct.css';
+
+const Viewproduct = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/view-product');
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  return (
+    <>
+      <div className="header">Admin Dashboard</div>
+      <div className="container">
+        <h3>User Product Details</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Product Image</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Description</th>
+              <th>Brand</th>
+              <th>Color</th>
+              <th>Stock</th>
+              <th>Discount</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {products.map((product) => (
+              <tr key={product._id}>
+                <td>{product.product}</td>
+
+                <td>
+                  {product.image ? (
+                    <img
+                      src={`http://localhost:3001/uploads/${product.image}`}
+                      alt={product.product}
+                      style={{
+                        width: '50px',
+                        height: '50px',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  ) : (
+                    'No Image'
+                  )}
+                </td>
+
+                <td>{product.category}</td>
+                <td>Rs {product.price}</td>
+                <td>{product.description}</td>
+                <td>{product.brand}</td>
+                <td>{product.color}</td>
+                <td>{product.stock}</td>
+                <td>{product.discount}%</td>
+                <td>⭐ {product.rating}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {products.length === 0 && <p>No products available.</p>}
+      </div>
+    </>
+  );
+};
+
+export default Viewproduct;

@@ -1,0 +1,103 @@
+.cart-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cart h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-card {
+  background: white;
+  width: 350px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.cart-left img {
+  width: 180px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.cart-right h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.price,
+.discount,
+.category,
+.color,
+.subtotal {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.discount {
+  color: green;
+  font-weight: bold;
+}
+
+.qty-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.qty-control button {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.remove-btn,
+.buy-btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 6px;
+}
+
+.remove-btn {
+  background: red;
+}
+
+.buy-btn {
+  background: green;
+}
+
+.total {
+  text-align: center;
+  margin-top: 20px;
+}
