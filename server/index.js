@@ -306,6 +306,12 @@ app.post("/create-order", async (req, res) => {
   }
 });
 
+
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
+
 app.listen(3001,()=>{
   console.log("Server running on port 3001")
 })

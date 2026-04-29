@@ -15,7 +15,7 @@ import SingleProduct from "./SingleProduct";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
 import Order from "./Order";
-
+import Invoice from "./Invoice";
 
 
 
@@ -40,6 +40,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/invoice/:id" element={<Invoice />} />
         
        </Routes>
     </BrowserRouter>
